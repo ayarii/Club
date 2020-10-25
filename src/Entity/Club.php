@@ -2,30 +2,29 @@
 
 namespace App\Entity;
 
-use App\Repository\ClassroomRepository;
+use App\Repository\ClubRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=ClassroomRepository::class)
+ * @ORM\Entity(repositoryClass=ClubRepository::class)
  */
-class Classroom
+class Club
 {
     /**
      * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      */
-    private $id;
+    private $ref;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="date")
      */
-    private $name;
+    private $creationDate;
 
     /**
-     * @ORM\OneToMany(targetEntity=Student::class, mappedBy="classroom")
+     * @ORM\ManyToMany(targetEntity=Student::class, mappedBy="clubs")
      */
     private $students;
 
@@ -34,20 +33,32 @@ class Classroom
         $this->students = new ArrayCollection();
     }
 
-
-    public function getId(): ?int
+    /**
+     * @return mixed
+     */
+    public function getRef()
     {
-        return $this->id;
+        return $this->ref;
     }
 
-    public function getName(): ?string
+    /**
+     * @param mixed $ref
+     */
+    public function setRef($ref): void
     {
-        return $this->name;
+        $this->ref = $ref;
     }
 
-    public function setName(string $name): self
+
+
+    public function getCreationDate(): ?\DateTimeInterface
     {
-        $this->name = $name;
+        return $this->creationDate;
+    }
+
+    public function setCreationDate(\DateTimeInterface $creationDate): self
+    {
+        $this->creationDate = $creationDate;
 
         return $this;
     }
@@ -64,7 +75,7 @@ class Classroom
     {
         if (!$this->students->contains($student)) {
             $this->students[] = $student;
-            $student->setClassroom($this);
+            $student->addClub($this);
         }
 
         return $this;
@@ -74,10 +85,7 @@ class Classroom
     {
         if ($this->students->contains($student)) {
             $this->students->removeElement($student);
-            // set the owning side to null (unless already changed)
-            if ($student->getClassroom() === $this) {
-                $student->setClassroom(null);
-            }
+            $student->removeClub($this);
         }
 
         return $this;
