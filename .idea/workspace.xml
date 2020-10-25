@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c646506d-ad34-4dcc-a1af-2d7924c1ec84" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/student/add.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/student/list.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/student/show.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/student/update.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Classroom.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Classroom.php" afterDir="false" />
     </list>
@@ -126,10 +130,15 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/student" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp\www\Club\templates\student" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -155,7 +164,7 @@
       <updated>1603185236338</updated>
       <workItem from="1603185257009" duration="6865000" />
       <workItem from="1603204898219" duration="1228000" />
-      <workItem from="1603650369652" duration="5122000" />
+      <workItem from="1603650369652" duration="6286000" />
     </task>
     <servers />
   </component>
