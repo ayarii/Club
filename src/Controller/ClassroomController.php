@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Classroom;
+use App\Entity\Student;
 use App\Form\ClassRoomType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -41,7 +42,14 @@ class ClassroomController extends AbstractController
     public function showClassroom($id)
     {
         $classroom = $this->getDoctrine()->getRepository(Classroom::class)->find($id);
-        return $this->render('classroom/show.html.twig', array("classroom" => $classroom));
+
+        //1 method:list of Students
+        //$students=$classroom->getStudents();
+        //2 method: from repository
+        $students= $this->getDoctrine()->getRepository(Student::class)->listStudentByClass($classroom->getId());
+        return $this->render('classroom/show.html.twig', array(
+            "classroom" => $classroom,
+            "students"=>$students));
     }
 
     /**
