@@ -1,0 +1,24 @@
+{{ form_start(searchStudent) }}
+{{ form_widget(searchStudent) }}
+<button type="submit" style="text-align: end">Search</button>
+{{ form_end(searchStudent) }}
+
+<table border="1">
+    <tr>
+        <td>NSC</td>
+        <td>Email</td>
+        <td>Classe</td>
+        <td>Action</td>
+    </tr>
+    {% for student in resultOfSearch %}
+        <tr>
+            <td>{{ student.nsc }}</td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.classroom }}</td>
+            <td><a href="{{ path('updateStudent',{'id':student.nsc}) }}">Update</a>
+                <a href="{{ path('deleteStudent',{'id':student.nsc}) }}">Delete</a>
+                <a href="{{ path('showStudent',{'id':student.nsc}) }}">Show</a></td>
+        </tr>
+    {% endfor %}
+</table>
+

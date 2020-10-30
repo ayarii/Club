@@ -1,4 +1,7 @@
-<table border="1">
+{{ form_start(searchStudent) }}
+{{ form_widget(searchStudent) }}
+<button type="submit" style="text-align: end">Search</button>
+{{ form_end(searchStudent) }}<table border="1">
     <tr>
         <td>NSC</td>
         <td>Email</td>
@@ -17,7 +20,7 @@
     {% endfor %}
 </table>
 <a href="{{ path('addStudent') }}">Add Student</a>
-<h1>Order By Mail</h1>
+<h1>List of students order By Mail</h1>
 
 <table border="1">
     <tr>

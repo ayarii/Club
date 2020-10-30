@@ -68,4 +68,14 @@ class StudentRepository extends ServiceEntityRepository
             ->orderBy('s.email', 'ASC')
             ->getQuery()->getResult();
     }
+
+    public function searchStudent($nsc)
+    {
+        return $this->createQueryBuilder('s')
+            ->andWhere('s.nsc LIKE :nsc')
+            ->setParameter('nsc', '%'.$nsc.'%')
+            ->getQuery()
+            ->execute();
+    }
+
 }

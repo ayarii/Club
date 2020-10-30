@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Student;
 use App\Form\ClassRoomType;
+use App\Form\SearchStudentType;
 use App\Form\StudentType;
 use App\Repository\StudentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -28,11 +29,26 @@ class StudentController extends AbstractController
     /**
      * @Route("/list", name="student")
      */
-    public function listStudent(StudentRepository $repository)
+    public function listStudent(Request $request, StudentRepository $repository)
     {
+        //All of Student
         $students = $repository->findAll();
+        //list of students order By Mail
         $studentsByMail = $repository->orderByMail();
-        return $this->render('student/list.html.twig', array("students" => $students,'studentsByMail'=>$studentsByMail));
+        //search
+        $searchForm = $this->createForm(SearchStudentType::class);
+        $searchForm->handleRequest($request);
+        if ($searchForm->isSubmitted()) {
+            $nsc = $searchForm->getData()->getNsc();
+            $resultOfSearch = $repository->searchStudent($nsc);
+            return $this->render('student/searchStudent.html.twig', array(
+                "resultOfSearch" => $resultOfSearch,
+                "searchStudent" => $searchForm->createView()));
+        }
+        return $this->render('student/list.html.twig', array(
+            "students" => $students,
+            "studentsByMail" => $studentsByMail,
+            "searchStudent" => $searchForm->createView()));
     }
 
     /**
@@ -70,13 +86,13 @@ class StudentController extends AbstractController
             $em->flush();
             return $this->redirectToRoute('student');
         }
-        return $this->render("student/add.html.twig",array('form'=>$form->createView()));
+        return $this->render("student/add.html.twig", array('form' => $form->createView()));
     }
 
     /**
      * @Route("/update/{id}", name="updateStudent")
      */
-    public function updateStudent(Request $request,$id)
+    public function updateStudent(Request $request, $id)
     {
         $student = $this->getDoctrine()->getRepository(Student::class)->find($id);
         $form = $this->createForm(StudentType::class, $student);
@@ -86,7 +102,7 @@ class StudentController extends AbstractController
             $em->flush();
             return $this->redirectToRoute('student');
         }
-        return $this->render("student/update.html.twig",array('form'=>$form->createView()));
+        return $this->render("student/update.html.twig", array('form' => $form->createView()));
     }
 
 }
