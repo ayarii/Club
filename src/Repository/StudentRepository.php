@@ -47,4 +47,25 @@ class StudentRepository extends ServiceEntityRepository
         ;
     }
     */
+
+      public function listStudent(){
+          return $this->createQueryBuilder('s')
+              ->where('s.nsc LIKE ?1')
+              ->andWhere('s.email LIKE ?2')
+             ->setParameter('1', 'L%')
+             ->setParameter('2', '%V%')
+              ->getQuery()
+              ->getResult();
+      }
+
+
+    /**
+     * Requête QueryBuilder
+     * */
+    public function orderByMail()
+    {
+        return $this->createQueryBuilder('s')
+            ->orderBy('s.email', 'ASC')
+            ->getQuery()->getResult();
+    }
 }

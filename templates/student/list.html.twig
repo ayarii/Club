@@ -17,3 +17,23 @@
     {% endfor %}
 </table>
 <a href="{{ path('addStudent') }}">Add Student</a>
+<h1>Order By Mail</h1>
+
+<table border="1">
+    <tr>
+        <td>NSC</td>
+        <td>Email</td>
+        <td>Classe</td>
+        <td>Action</td>
+    </tr>
+    {% for student in studentsByMail %}
+        <tr>
+            <td>{{ student.nsc }}</td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.classroom }}</td>
+            <td><a href="{{ path('updateStudent',{'id':student.nsc}) }}">Update</a>
+                <a href="{{ path('deleteStudent',{'id':student.nsc}) }}">Delete</a>
+                <a href="{{ path('showStudent',{'id':student.nsc}) }}">Show</a></td>
+        </tr>
+    {% endfor %}
+</table>

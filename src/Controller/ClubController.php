@@ -29,7 +29,8 @@ class ClubController extends AbstractController
     public function listClub()
     {
         $clubs = $this->getDoctrine()->getRepository(Club::class)->findAll();
-        return $this->render('club/list.html.twig', array("clubs" => $clubs));
+        $clubsByDate= $this->getDoctrine()->getRepository(Club::class)->orderByDate();
+        return $this->render('club/list.html.twig', array("clubs" => $clubs,"clubByDate"=>$clubsByDate));
     }
 
     /**
@@ -85,4 +86,5 @@ class ClubController extends AbstractController
         }
         return $this->render("club/update.html.twig",array('form'=>$form->createView()));
     }
+
 }

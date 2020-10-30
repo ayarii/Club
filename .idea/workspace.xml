@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c646506d-ad34-4dcc-a1af-2d7924c1ec84" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/club/add.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/club/list.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/club/show.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/club/update.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/ASUS.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ClubController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ClubController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/StudentController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Student.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Student.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ClubRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ClubRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/StudentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/StudentRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/club/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/club/list.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/student/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/student/list.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -129,11 +132,12 @@
   <component name="ProjectId" id="1j8UU7LwjTs18lldze6fZ897Za4" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/club" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -165,7 +169,13 @@
       <updated>1603185236338</updated>
       <workItem from="1603185257009" duration="6865000" />
       <workItem from="1603204898219" duration="1228000" />
-      <workItem from="1603650369652" duration="8421000" />
+      <workItem from="1603650369652" duration="8655000" />
+      <workItem from="1603697823860" duration="1358000" />
+      <workItem from="1603721503889" duration="567000" />
+      <workItem from="1603792422792" duration="113000" />
+      <workItem from="1603808644331" duration="1205000" />
+      <workItem from="1603875103947" duration="14411000" />
+      <workItem from="1604051182340" duration="3620000" />
     </task>
     <servers />
   </component>

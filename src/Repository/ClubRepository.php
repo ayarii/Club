@@ -47,4 +47,13 @@ class ClubRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function orderByDate()
+    {
+        return $this->createQueryBuilder('s')
+            ->orderBy('s.creationDate', 'DESC')
+            ->setMaxResults(3)
+            ->getQuery()->getResult();
+    }
+
 }

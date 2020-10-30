@@ -15,3 +15,20 @@
     {% endfor %}
 </table>
 <a href="{{ path('addClub') }}">Add Club</a>
+<h1>List Club Order By Date</h1>
+<table border="1">
+    <tr>
+        <td>REF</td>
+        <td>Creation_Date</td>
+        <td>Action</td>
+    </tr>
+    {% for club in clubByDate %}
+        <tr>
+            <td>{{ club.ref }}</td>
+            <td>{{ club.creationDate|date }}</td>
+            <td><a href="{{ path('updateClub',{'id':club.ref}) }}">Update</a>
+                <a href="{{ path('deleteClub',{'id':club.ref}) }}">Delete</a>
+                <a href="{{ path('showClub',{'id':club.ref}) }}">Show</a></td>
+        </tr>
+    {% endfor %}
+</table>

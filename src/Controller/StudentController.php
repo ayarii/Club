@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Student;
 use App\Form\ClassRoomType;
 use App\Form\StudentType;
+use App\Repository\StudentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -27,12 +28,12 @@ class StudentController extends AbstractController
     /**
      * @Route("/list", name="student")
      */
-    public function listStudent()
+    public function listStudent(StudentRepository $repository)
     {
-        $students = $this->getDoctrine()->getRepository(Student::class)->findAll();
-        return $this->render('student/list.html.twig', array("students" => $students));
+        $students = $repository->findAll();
+        $studentsByMail = $repository->orderByMail();
+        return $this->render('student/list.html.twig', array("students" => $students,'studentsByMail'=>$studentsByMail));
     }
-
 
     /**
      * @Route("/delete/{id}", name="deleteStudent")
@@ -87,4 +88,5 @@ class StudentController extends AbstractController
         }
         return $this->render("student/update.html.twig",array('form'=>$form->createView()));
     }
+
 }
