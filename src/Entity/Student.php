@@ -30,9 +30,12 @@ class Student
 
     /**
      * @ORM\ManyToMany(targetEntity=Club::class, inversedBy="students")
+     *  @ORM\JoinTable(name="students_clubs",
+     *      joinColumns={@ORM\JoinColumn(name="student_id", referencedColumnName="nsc")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="club_id", referencedColumnName="ref")}
+     *      )
      */
     private $clubs;
-
 
     public function __construct()
     {

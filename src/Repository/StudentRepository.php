@@ -77,9 +77,9 @@ class StudentRepository extends ServiceEntityRepository
             ->getQuery()
             ->execute();
     }
+
     public function listStudentByClass($id)
     {
-
         return $this->createQueryBuilder('s')
             ->join('s.classroom', 'c')
             ->addSelect('c')

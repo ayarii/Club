@@ -28,6 +28,11 @@ class Club
      */
     private $students;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $enabled;
+
     public function __construct()
     {
         $this->students = new ArrayCollection();
@@ -87,6 +92,18 @@ class Club
             $this->students->removeElement($student);
             $student->removeClub($this);
         }
+
+        return $this;
+    }
+
+    public function getEnabled(): ?bool
+    {
+        return $this->enabled;
+    }
+
+    public function setEnabled(bool $enabled): self
+    {
+        $this->enabled = $enabled;
 
         return $this;
     }

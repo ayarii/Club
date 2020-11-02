@@ -30,7 +30,11 @@ class ClubController extends AbstractController
     {
         $clubs = $this->getDoctrine()->getRepository(Club::class)->findAll();
         $clubsByDate= $this->getDoctrine()->getRepository(Club::class)->orderByDate();
-        return $this->render('club/list.html.twig', array("clubs" => $clubs,"clubByDate"=>$clubsByDate));
+        $enabledClubs = $this->getDoctrine()->getRepository(Club::class)->findEnabledClub();
+        return $this->render('club/list.html.twig', array(
+            "clubs" => $clubs,
+            "clubByDate"=>$clubsByDate,
+             "enabledClub"=>$enabledClubs));
     }
 
     /**

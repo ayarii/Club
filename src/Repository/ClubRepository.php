@@ -56,4 +56,12 @@ class ClubRepository extends ServiceEntityRepository
             ->getQuery()->getResult();
     }
 
+    public function findEnabledClub(){
+        $qb= $this->createQueryBuilder('c');
+        $qb ->where('c.enabled=:enabled');
+        $qb->setParameter('enabled',true);
+        return $qb->getQuery()->getResult();
+
+    }
+
 }
