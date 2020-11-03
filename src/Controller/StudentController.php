@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Student;
-use App\Form\ClassRoomType;
 use App\Form\SearchStudentType;
 use App\Form\StudentType;
 use App\Repository\StudentRepository;
@@ -80,7 +79,7 @@ class StudentController extends AbstractController
         $student = new Student();
         $form = $this->createForm(StudentType::class, $student);
         $form->handleRequest($request);
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() and $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($student);
             $em->flush();

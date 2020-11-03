@@ -16,9 +16,8 @@ class StudentType extends AbstractType
             ->add('nsc')
             ->add('email')
             ->add('classroom')
-            ->add('submit',SubmitType::class)
-
-            #->add('clubs')
+            ->add('submit',SubmitType::class,
+                     ['attr'=>['formnovalidate'=>'formnovalidate']])
         ;
     }
 
